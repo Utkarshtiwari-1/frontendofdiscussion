@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import { AiOutlineCaretDown } from "react-icons/ai"
 import { VscDashboard, VscSignOut } from "react-icons/vsc"
 import { useDispatch, useSelector } from "react-redux"
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { settoken,setuser } from "../slice/authslice"
 import toast from "react-hot-toast"
 import useOnClickOutside from "../hooks/useOnClickOutside"
@@ -10,7 +10,6 @@ import useOnClickOutside from "../hooks/useOnClickOutside"
 function Profiledown() {
   const { user } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
 
@@ -32,8 +31,8 @@ function Profiledown() {
       <div className="flex items-center gap-x-1">
         <img
           src={user?.image}
-          alt={`profile-${user?.firstName}`}
-          className="aspect-square w-[25px] rounded-full object-cover"
+          alt={`profile-${user?.Name}`}
+          className="h-8 w-8 rounded-full object-cover"
         />
         <AiOutlineCaretDown className="text-sm text-black" />
       </div>
@@ -51,9 +50,9 @@ function Profiledown() {
           </Link>
           <div
             onClick={() => {
-              dispatch(logouthandler)
-              setOpen(false)
-            }}
+                logouthandler()
+                setOpen(false)
+              }}
             className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-white hover:text-richblack-25"
           >
             <VscSignOut className="text-lg" />

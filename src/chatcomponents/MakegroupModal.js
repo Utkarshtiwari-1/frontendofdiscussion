@@ -85,8 +85,8 @@ export const MakegroupModal = ({setmakegroupmodal,groupmodal,setrefetch,refetch}
                                 <div className='flex flex-wrap gap-2 pt-3'>
                                     {
                                     members.map((member)=>(
-                                        <Rendermember member={member} setmembers={setmembers} members={members}></Rendermember>
-                                    ))
+                                            <Rendermember key={member._id} member={member} setmembers={setmembers} members={members}></Rendermember>
+                                        ))
                                     }
                                 </div>
                             )
@@ -112,8 +112,8 @@ export const MakegroupModal = ({setmakegroupmodal,groupmodal,setrefetch,refetch}
                             <div key={people._id} className='flex gap-2 bg-blue-300 border border-gray-400 
                                 rounded-md pl-2 pr-2 pt-1 pb-1 cursor-pointer mt-1 w-full items-center'>
                                 <div>
-                                    <img src={people.image} className='w-[40px] h-[40px] aspect-square 
-                                    rounded-full '></img>
+                                    <img src={people.image} alt={`Profile of ${people.Name}`} className='w-[40px] h-[40px] aspect-square 
+                                    rounded-full ' />
                                 </div>
                                 <div>
                                     <p>{people.Name}</p>
@@ -121,7 +121,7 @@ export const MakegroupModal = ({setmakegroupmodal,groupmodal,setrefetch,refetch}
                                 </div>
                                 <div className='pl-8'>
                                     {   
-                                        members.find((member)=>member===people)?(<div 
+                                        members.find((member)=>member._id===people._id)?(<div 
                                         className='px-1 py-1 bg-yellow-300 rounded-md'>Added</div>):
                                         (
                                         <button className='px-1 py-1 bg-yellow-500 rounded-md'

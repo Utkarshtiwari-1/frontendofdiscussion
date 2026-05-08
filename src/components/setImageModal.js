@@ -8,8 +8,8 @@ import { useSelector } from 'react-redux';
 
 export const SetImageModal = ({setimagemodal,setrefetch,refetch}) => {
 
-    const {register,setValue,getValues,handleSubmit} = useForm();
-    const [loading ,setloading] = useState(false);
+    const {register,setValue,handleSubmit} = useForm();
+    const [loading] = useState(false);
     const {token} = useSelector((state)=>state.auth);
 
     async function imageuploadhandler(data)

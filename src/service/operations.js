@@ -6,7 +6,7 @@ import { apiconnector } from "./apiconnector";
 const {signupapi,loginapi,getalltagapi,createquestionapi,
     postquestionapi,getallquesapi,getdisscussionusingidapi,
     createanswerapi,getpostbytag,increaseupvote,searchuserapi,
-    requestedapi,sendrequestapi,getnotificationapi,acceptreqapi,
+    sendrequestapi,getnotificationapi,acceptreqapi,
     getmychtsapi,getmessages,creategroupapi,geminiapi,getuserProfileApi,
     updateimageapi,leaveapi
 } = authapi;

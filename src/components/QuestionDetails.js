@@ -42,7 +42,7 @@ function QuestionDetails(){
 
 
 
-    },[refresh]);
+    },[refresh, navigate, queid]);
 
     
 
@@ -84,7 +84,8 @@ function QuestionDetails(){
                                 {
                                     question?.question?.Media!==null && (
                                         question?.question?.mediaType==="image"?(<img src={question?.question?.Media}
-                                        className="h-[70%] w-[70%] object-contain rounded-md"></img>)
+                                        alt={question?.question?.problem || "media"}
+                                        className="h-[70%] w-[70%] object-contain rounded-md" />)
                                         :(<video src={question?.question?.Media} autoPlay={false} controls={true}></video>)
                                     )
                                 }
@@ -96,7 +97,8 @@ function QuestionDetails(){
                                     <div className="flex gap-2 ">
                                         <img src={question?.isanonymous?anonymous:
                                             question?.asker?.image}
-                                        className="w-[80px] h-[80px] aspect-square rounded-full"></img>
+                                        alt={question?.isanonymous?"anonymous":(question?.asker?.Name||"author")}
+                                        className="w-[80px] h-[80px] aspect-square rounded-full" />
                                         <div className="flex flex-col">
                                         <p>{question?.isanonymous?"Anonymous User":
                                             question?.asker?.Name}</p>

@@ -34,7 +34,7 @@ export default function Userprofile() {
   
   
 
-  },[refetch])
+  },[refetch, token])
 
 
   return (
@@ -52,8 +52,7 @@ export default function Userprofile() {
                       <p><span className='font-semibold'>College: </span>{userdata?.user?.college}</p>
                     </div>
                     <div className='flex items-baseline gap-2'>
-                      <img src={userdata?.user.image} className='w-[100px] h-[100px] aspect-square rounded-full
-                      object-cover border-1 border-gray-600'></img>
+                      <img src={userdata?.user.image} alt={`profile-${userdata?.user?.Name}`} className='h-28 w-28 rounded-full object-cover ring-4 ring-slate-100'></img>
                       <button className='text-xl text-red-800 p-1 bg-gray-400 rounded-md'
                       onClick={()=>setimagemodal(true)}
                      >
@@ -80,21 +79,17 @@ export default function Userprofile() {
                   <p className='text-xl font-semibold'>Your Chats</p>
                   <div>
                     {
-                      userdata?.Totalchats?.length==0?<div>No Chats</div>:
+                      userdata?.Totalchats?.length===0?<div className='muted'>No Chats</div>:
                       userdata?.Totalchats?.map((chat)=>(
-                        <div className='pl-5 pr-10 '>
-                        <div key={chat?._id} className='flex gap-2 bg-blue-300 border border-gray-400 
-                    rounded-md pl-2 pr-2 pt-1 pb-1 cursor-pointer mt-1 w-full items-center'>
+                        <div key={chat?._id} className='flex w-full cursor-pointer items-center gap-3 border border-slate-200 bg-slate-50 p-3 transition hover:border-cyan-400 hover:bg-cyan-50'>
                         <div>
-                            <img src={chat?.avtar} className='w-[40px] h-[40px] aspect-square 
-                            rounded-full '></img>
+                            <img src={chat?.avtar} alt={`chat-${chat?.name}`} className='h-11 w-11 rounded-full object-cover'></img>
                         </div>
                         <div>
                             <p className='font-semibold'>{chat?.name}</p>
                             {
                               chat?.groupChat?<div>Group Chat</div>:<div>Personal Chat</div>
                             }
-                        </div>
                         </div>
                         </div>
                       ))
