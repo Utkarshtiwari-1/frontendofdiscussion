@@ -487,13 +487,21 @@ export const GenerateResponse = async(promt)=>{
 
         const response = await apiconnector("POST",geminiapi,{ques:promt});
 
-        if(!response.data.succsess)
+        if(!response.data.success)
         {
             throw new Error(response.data.message);
         }
 
-        result = response.data.solution;
-        result = result.replace(/[*\n]/g,'');
+        result = response.data.solution ?? response.data.result ?? response.data.answer ?? "";
+
+        if (typeof result !== "string") {
+            result = JSON.stringify(result, null, 2);
+        }
+
+        result = result
+            .replace(/\r\n/g, "\n")
+            .replace(/\n{3,}/g, "\n\n")
+            .trim();
         console.log("result",result);
         
     } catch (error) {
