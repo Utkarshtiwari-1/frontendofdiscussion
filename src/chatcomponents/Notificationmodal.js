@@ -31,13 +31,12 @@ export const Notificationmodal = ({notifications,setnotificationmodal,notificati
                     {
                         notifications.length===0?<p>No Notifications</p>:
                         (
-                            notifications.map((user)=>(
-                                user.status!=="accepeted" &&
-                                <div className='w-full bg-blue-300 border-1 border-gray-600 rounded-md
+                            notifications.filter(u=>u.status !== "accepeted").map((user)=>(
+                                <div key={user._id} className='w-full bg-blue-300 border-1 border-gray-600 rounded-md
                                 flex gap-2 items-center justify-between p-1'>
                                     <div className='flex gap-2 items-center text-md font-semibold'>
-                                    <img src={user.sender.image} className='h-[60px] w-[60px] aspect-square
-                                    rounded-full'></img>
+                                    <img src={user.sender.image} alt={`${user.sender.Name} avatar`} className='h-[60px] w-[60px] aspect-square
+                                    rounded-full' />
                                     <p>{user.sender.Name}</p>
                                     </div>
                                     <div className='flex gap-3 pr-2 '>

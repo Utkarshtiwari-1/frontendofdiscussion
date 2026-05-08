@@ -1,15 +1,12 @@
 import React from 'react'
 import logo1 from "../images/logo-color (2).png"
 
-import { useDispatch, useSelector } from 'react-redux'
-import { settoken, setuser } from '../slice/authslice';
-import toast from 'react-hot-toast';
+import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
 import Profiledown from './Profiledown';
 
 export const Navbar = () => {
     const {token} = useSelector((state)=>state.auth);
-    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     

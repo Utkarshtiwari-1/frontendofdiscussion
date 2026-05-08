@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 import { sendrequest } from '../service/operations';
@@ -26,8 +26,8 @@ export const Singleuser = ({user,request}) => {
     <div key={user._id} className='flex gap-2 bg-blue-300 border border-gray-400 
                     rounded-md pl-2 pr-2 pt-1 pb-1 cursor-pointer mt-1 w-full items-center'>
                         <div>
-                            <img src={user.image} className='w-[40px] h-[40px] aspect-square 
-                            rounded-full '></img>
+                            <img src={user.image} alt={`${user.Name} avatar`} className='w-[40px] h-[40px] aspect-square 
+                            rounded-full ' />
                         </div>
                         <div>
                             <p>{user.Name}</p>

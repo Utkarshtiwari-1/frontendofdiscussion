@@ -73,7 +73,7 @@ export const Chat = () => {
         }
         getchats();
         
-    },[refetch])
+    },[refetch, token])
 
   return (
     <div className='w-full min-h-[100vh] h-[100vh] bg-blue-50 pt-14 z-0 relative '>
@@ -98,7 +98,7 @@ export const Chat = () => {
                                 setchatdata({name:group.name,avtar:group.avtar,members:group.members.length,
                                 groupchat:group.groupChat})
                              }}>
-                                <img src={group.avtar} className='w-[50px] h-[50px] aspect-square rounded-full'></img>
+                                <img src={group.avtar} alt={`${group.name} avatar`} className='w-[50px] h-[50px] aspect-square rounded-full' />
                                 <div className='text-lg font-semibold '>{group.name}</div>
                                 
                             </div>
@@ -111,7 +111,7 @@ export const Chat = () => {
             <div className='lg:w-[60%] sm:w-full    bg-blue-100 h-full'>
                 {
                     chatid===null?<div className='flex justify-center items-center h-full bg-purple-200 pl-0'>
-                        <img src={chatimge} className='rounded-md'></img>
+                        <img src={chatimge} alt='Chat placeholder' className='rounded-md' />
                     </div>:(
                         <Chatting chatid={chatid} members={members} chatdata={chatdata} setchatid={setchatid}
                         refetch={refetch} setrefetch={setrefetch}></Chatting>

@@ -17,7 +17,7 @@ export default function Singleitems({item}) {
 
     useEffect(()=>{
         setvotes(item?.upvotes?.length||0);
-    },[]);
+    },[item?.upvotes?.length]);
 
     async function votehandler(postid)
     {

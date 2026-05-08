@@ -1,7 +1,6 @@
 import { useState,useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import Answeritems from "./Answeritems";
-import { getallposts } from "../service/operations";
 
 function Answerpaginateditems({itemsPerPage,answers})
 {
@@ -14,8 +13,8 @@ function Answerpaginateditems({itemsPerPage,answers})
     const pageCount = Math.ceil(items.length / itemsPerPage);
 
     useEffect(()=>{
-        setitems(answers);
-    },[])
+        setitems(answers || []);
+    },[answers])
 
 
     const handlePageClick = (event) => {

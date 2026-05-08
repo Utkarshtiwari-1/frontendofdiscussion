@@ -28,7 +28,7 @@ function Askquestion()
 
             </div>
             {
-                step==1 ?(
+                step===1 ?(
                     <div>
                         <CreateQues></CreateQues>
                     </div>
