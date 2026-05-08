@@ -36,7 +36,7 @@ export const Chatting = ({chatid,members,chatdata,setchatid,refetch,setrefetch})
         Getallmessages();
 
 
-    },[chatid])
+    },[chatid,token])
    
     
     //console.log("chatid",chatid,members)
@@ -83,7 +83,7 @@ export const Chatting = ({chatid,members,chatdata,setchatid,refetch,setrefetch})
         <div className='overflow-y-auto pb-10'>
             <div className='flex gap-3 items-center border-b border-gray-600 py-2 pl-5 justify-between'>
                 <div className='flex gap-3 items-center '> 
-                <img src={chatdata.avtar} className='h-[50px] w-[50px] aspect-square rounded-md'></img>
+                <img src={chatdata.avtar} alt='none' className='h-[50px] w-[50px] aspect-square rounded-md'></img>
                 <div className='text-xl text-gray-800 font-serif'>{chatdata.name}</div>
                 {
                     chatdata.groupchat?(<div>Group chat {`(${chatdata.members} Members) `}</div>):(<div>Presonal chat</div>)
