@@ -11,7 +11,7 @@ export const Chatting = ({chatid,members,chatdata,setchatid,refetch,setrefetch})
 
     const [allmessage,setallmessages] = useState([]);
     const [message,setmessage] = useState("");
-    const [othermessage,setothermessage] = useState("");
+    // const [othermessage,setothermessage] = useState("");
     const {token,user} = useSelector((state)=>state.auth);
     const [loading,setloading] = useState(false);
     const socket = io("https://backendofdiscussion-2.onrender.com",{
