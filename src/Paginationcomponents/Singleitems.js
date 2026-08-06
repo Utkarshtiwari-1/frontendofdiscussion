@@ -71,7 +71,6 @@ export default function Singleitems({item}) {
                                 <p>{item?.question?.tags?.tagname}</p>
                             </div>
                             <div>{votes} Votes</div>
-                            <div>{formatInTimeZone(new Date(item?.createdAt), 'America/New_York', 'yyyy-MM-dd ')}</div>
                         </div>
                     </div>
     </div>
