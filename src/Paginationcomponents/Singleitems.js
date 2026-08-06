@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { BiUpvote } from "react-icons/bi";
 import toast from "react-hot-toast";
 import { updatevote } from "../service/operations";
-import { formatInTimeZone } from 'date-fns-tz';
 import { TiTag } from 'react-icons/ti';
 
 export default function Singleitems({item}) {
